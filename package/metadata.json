@@ -1,0 +1,26 @@
+{
+  "KPackageStructure": "Plasma/Applet",
+  "KPlugin": {
+    "Category": "Utilities",
+    "Id": "de.agundur.KPictureFrame",
+    "ServiceTypes": [
+      "Plasma/Applet"
+    ],
+    "Name": "KCast",
+    "Icon": "folder-picture-symbolic",
+    "Description": "A picture frame for your Desktop",
+    "Authors": [
+      {
+        "Email": "info@agundur.de",
+        "Name": "Alec"
+      }
+    ],
+    "Version": "2.0",
+    "License": "GPL",
+    "Website": "https://www.agundur.de",
+    "BugReportUrl": "info@agundur.de"
+  },
+  "X-Plasma-API-Minimum-Version": "6.0",
+  "X-Plasma-API": "declarativeappletscript",
+  "X-Plasma-MainScript": "ui/main.qml"
+}
