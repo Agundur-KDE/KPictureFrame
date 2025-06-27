@@ -28,9 +28,6 @@ Kirigami.FormLayout {
             onAccepted: {
                 variableName.text = fileDialog.selectedFile.toString().replace("file://", "");
             }
-            Component.onCompleted: {
-                console.log(StandardPaths);
-            }
         }
 
         QQC2.TextField {
