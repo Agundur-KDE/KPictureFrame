@@ -6,7 +6,7 @@
  */
 
 import QtQuick 2.0
-import QtQuick.Controls 2.5 as QQC2
+import QtQuick.Controls 6.2 as QQC2
 import QtQuick.Dialogs as QQD
 import QtQuick.Layouts 1.0
 import org.kde.kirigami 2.4 as Kirigami
@@ -39,7 +39,8 @@ Kirigami.FormLayout {
                 sourceComponent: QQD.FileDialog {
                     id: fileDialog
 
-                    // folder: QQD.shortcuts.pictures
+                    fileMode: 0
+                    currentFolder: StandardPaths.standardLocations(StandardPaths.PicturesLocation)[0]
                     nameFilters: ["Images (*.png *.jpg *.jpeg *.webp *.svg)", i18n("All files (%1)", "*")]
                     onAccepted: {
                         variableName.text = fileUrl;
