@@ -19,6 +19,17 @@ Kirigami.FormLayout {
     RowLayout {
         Kirigami.FormData.label: i18n("Picture:")
 
+        QQD.FileDialog {
+            id: fileDialog
+
+            fileMode: OpenFile
+            currentFolder: StandardPaths.standardLocations(StandardPaths.PicturesLocation)[0]
+            nameFilters: ["Images (*.png *.jpg *.jpeg *.webp *.svg)", i18n("All files (%1)", "*")]
+            onAccepted: {
+                variableName.text = fileUrl;
+            }
+        }
+
         QQC2.TextField {
             id: variableName
 
@@ -28,34 +39,9 @@ Kirigami.FormLayout {
         QQC2.Button {
             text: i18n("Browse")
             icon.name: "folder-symbolic"
-            onClicked: fileDialogLoader.active = true
-
-            Loader {
-                id: fileDialogLoader
-
-                Component.onCompleted: open()
-                active: false
-
-                sourceComponent: QQD.FileDialog {
-                    id: fileDialog
-
-                    fileMode: 0
-                    currentFolder: StandardPaths.standardLocations(StandardPaths.PicturesLocation)[0]
-                    nameFilters: ["Images (*.png *.jpg *.jpeg *.webp *.svg)", i18n("All files (%1)", "*")]
-                    onAccepted: {
-                        variableName.text = fileUrl;
-                        fileDialogLoader.active = false;
-                    }
-                    onRejected: {
-                        fileDialogLoader.active = false;
-                    }
-                }
-
-            }
-
+            onClicked: fileDialog.open()
         }
 
     }
 
 }
-// nameFilters: ["Images (*.png *.jpg *.jpeg *.webp *.svg)"]
