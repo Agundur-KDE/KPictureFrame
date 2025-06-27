@@ -28,10 +28,16 @@ PlasmoidItem {
     // Darstellungen binden das zentrale Modell
     fullRepresentation: FullRepresentation {
         id: full
+
+        Layout.preferredWidth: full.implicitWidth > 0 ? full.implicitWidth : 300
+        Layout.preferredHeight: full.implicitHeight > 0 ? full.implicitHeight : 200
     }
 
     compactRepresentation: MouseArea {
         id: compact
+
+        implicitWidth: Kirigami.Units.iconSizes.medium
+        implicitHeight: Kirigami.Units.iconSizes.medium
     }
 
 }

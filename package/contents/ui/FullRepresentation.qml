@@ -18,7 +18,11 @@ DropArea {
     id: full
 
     property string imagePath: plasmoid.configuration.imagePath
+    property int contentWidth: 0
+    property int contentHeight: 0
 
+    implicitWidth: contentWidth
+    implicitHeight: contentHeight
     anchors.fill: parent
     onDropped: (drop) => {
         if (drop.hasUrls) {
@@ -35,16 +39,18 @@ DropArea {
     Image {
         id: picture
 
-        anchors.fill: parent
-        fillMode: Image.PreserveAspectCrop
+        anchors.fill: undefined
+        fillMode: Image.Image.PreserveAspectFit
         source: imagePath
+        asynchronous: true
+        visible: status === Image.Ready
         onStatusChanged: {
             if (status === Image.Error)
                 console.warn("❌ Fehler beim Laden des Bildes:", imagePath);
 
             if (status === Image.Ready) {
-                root.implicitWidth = sourceSize.width;
-                root.implicitHeight = sourceSize.height;
+                width = sourceSize.width;
+                height = sourceSize.height;
             }
         }
     }
