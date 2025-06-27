@@ -4,7 +4,7 @@
  * SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
  *
  */
-
+import QtCore
 import QtQuick 2.0
 import QtQuick.Controls 6.2 as QQC2
 import QtQuick.Dialogs as QQD
