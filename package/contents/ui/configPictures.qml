@@ -17,8 +17,6 @@ Kirigami.FormLayout {
     property alias cfg_imagePath: variableName.text
 
     RowLayout {
-        Kirigami.FormData.label: i18n("Picture:")
-
         QQD.FileDialog {
             id: fileDialog
 
@@ -33,6 +31,7 @@ Kirigami.FormLayout {
         QQC2.TextField {
             id: variableName
 
+            Kirigami.FormData.label: i18n("Picture:")
             placeholderText: i18n("No file selected.")
         }
 

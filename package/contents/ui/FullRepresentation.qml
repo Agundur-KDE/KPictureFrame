@@ -41,20 +41,28 @@ DropArea {
 
         anchors.fill: parent
         fillMode: Image.Image.PreserveAspectFit
+        smooth: true
+        mipmap: true
         source: imagePath
+        autoTransform: true
         asynchronous: true
         visible: status === Image.Ready
-        Image.supportsOption("autoTransform")
         onStatusChanged: {
+            // root.width = picture.paintedWidth;
+            // root.height = picture.paintedHeight;
+            // root.implicitWidth = picture.paintedWidth;
+            // root.implicitHeight = picture.paintedHeight;
+
             if (status === Image.Error)
                 console.warn("❌ Fehler beim Laden des Bildes:", imagePath);
 
-            if (status === Image.Ready) {
-                width = sourceSize.width;
-                height = sourceSize.height;
-                full.contentWidth = width;
-                full.contentHeight = height;
-            }
+            if (status === Image.Ready)
+                Qt.callLater(() => {
+                    // wird abgewartet bis das Bild wirklich gerendert ist
+                    full.contentWidth = picture.paintedWidth;
+                    full.contentHeight = picture.paintedHeight;
+                });
+
         }
     }
 
