@@ -22,9 +22,9 @@ Kirigami.FormLayout {
         QQD.FileDialog {
             id: fileDialog
 
-            fileMode: OpenFile
+            fileMode: QQD.FileDialog.OpenFile
             currentFolder: StandardPaths.standardLocations(StandardPaths.PicturesLocation)[0]
-            nameFilters: ["Images (*.png *.jpg *.jpeg *.webp *.svg)", i18n("All files (%1)", "*")]
+            nameFilters: ["*.png *.jpg *.jpeg *.webp *.svg", "*"]
             onAccepted: {
                 variableName.text = fileDialog.selectedFile.toString().replace("file://", "");
             }
