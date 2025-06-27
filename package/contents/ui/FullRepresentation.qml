@@ -20,6 +20,17 @@ DropArea {
     property string imagePath: plasmoid.configuration.imagePath
 
     anchors.fill: parent
+    onDropped: (drop) => {
+        if (drop.hasUrls) {
+            let url = drop.urls[0];
+            if (url.toString().startsWith("file:")) {
+                // Nur Bilder erlauben (optional)
+                if (url.toString().match(/\.(png|jpe?g|webp|svg)$/i))
+                    plasmoid.configuration.imagePath = url.toString().replace("file://", "");
+
+            }
+        }
+    }
 
     Image {
         id: picture
@@ -38,7 +49,7 @@ DropArea {
     Label {
         anchors.centerIn: parent
         visible: !imagePath
-        text: i18n("No image selected")
+        text: i18n("Drag an image here")
         color: "white"
         font.pixelSize: 18
     }
