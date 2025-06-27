@@ -44,6 +44,7 @@ DropArea {
         source: imagePath
         asynchronous: true
         visible: status === Image.Ready
+        Image.supportsOption("autoTransform")
         onStatusChanged: {
             if (status === Image.Error)
                 console.warn("❌ Fehler beim Laden des Bildes:", imagePath);
