@@ -26,7 +26,10 @@ Kirigami.FormLayout {
             currentFolder: StandardPaths.standardLocations(StandardPaths.PicturesLocation)[0]
             nameFilters: ["Images (*.png *.jpg *.jpeg *.webp *.svg)", i18n("All files (%1)", "*")]
             onAccepted: {
-                variableName.text = fileUrl;
+                variableName.text = fileDialog.selectedFile.toString().replace("file://", "");
+            }
+            Component.onCompleted: {
+                console.log(StandardPaths);
             }
         }
 
