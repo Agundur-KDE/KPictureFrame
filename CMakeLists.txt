@@ -29,6 +29,6 @@ if (Qt6Gui_VERSION VERSION_GREATER_EQUAL "6.10.0")
 endif()
 
 
-set(PLASMOID_ID kpictureframe)
+set(PLASMOID_ID de.agundur.kpictureframe)
 
-install(DIRECTORY package/ DESTINATION ${KDE_INSTALL_DATADIR}/plasma/plasmoids/kpictureframe)
+install(DIRECTORY package/ DESTINATION ${KDE_INSTALL_DATADIR}/plasma/plasmoids/de.agundur.kpictureframe)
