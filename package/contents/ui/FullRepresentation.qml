@@ -42,6 +42,10 @@ DropArea {
             if (status === Image.Error)
                 console.warn("❌ Fehler beim Laden des Bildes:", imagePath);
 
+            if (status === Image.Ready) {
+                root.implicitWidth = sourceSize.width;
+                root.implicitHeight = sourceSize.height;
+            }
         }
     }
 
