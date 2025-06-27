@@ -18,14 +18,11 @@
 </a></div>
 
 
-
-
-
 # KPictureFrame
 
-**KPictureFrame** is a lightweight and elegant KDE Plasma widget that displays a user-defined image in a Plasmoid – ideal for embedding personal photos, logos, QR codes, or dynamic wallpapers directly onto your desktop or panel.
+**KPictureFrame** is a lightweight KDE Plasma 6 widget that displays a user-defined image in a Plasmoid – ideal for embedding personal photos, logos, QR codes directly onto your desktop.
 
-![Screenshot](contents/images/screenshot.png) <!-- Optional, if you provide a screenshot -->
+![Screenshot](KPictureFrame3.png) <!-- Optional, if you provide a screenshot -->
 
 ---
 
