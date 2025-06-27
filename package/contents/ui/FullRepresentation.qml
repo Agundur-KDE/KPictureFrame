@@ -39,7 +39,7 @@ DropArea {
     Image {
         id: picture
 
-        anchors.fill: undefined
+        anchors.fill: parent
         fillMode: Image.Image.PreserveAspectFit
         source: imagePath
         asynchronous: true
@@ -51,6 +51,8 @@ DropArea {
             if (status === Image.Ready) {
                 width = sourceSize.width;
                 height = sourceSize.height;
+                full.contentWidth = width;
+                full.contentHeight = height;
             }
         }
     }
