@@ -2,11 +2,11 @@
   "KPackageStructure": "Plasma/Applet",
   "KPlugin": {
     "Category": "Utilities",
-    "Id": "de.agundur.KPictureFrame",
+    "Id": "de.agundur.kpictureframe",
     "ServiceTypes": [
       "Plasma/Applet"
     ],
-    "Name": "KCast",
+    "Name": "KPictureFrame",
     "Icon": "folder-picture-symbolic",
     "Description": "A picture frame for your Desktop",
     "Authors": [
