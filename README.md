@@ -43,13 +43,32 @@
 
 **system wide installation**
 
+```bash
+
 mkdir build && cd build
 
 cmake ..
 
 make
 
-make install (as root) 
+make install (as root)
+
+```
+
+**Direct Installation**
+
+```bash
+
+git clone https://github.com/Agundur-KDE/KPictureFrame.git
+
+cd KPictureFrame/
+
+kpackagetool6 --type=Plasma/Applet --install package --packageroot ~/.local/share/plasma/plasmoids/
+
+# Restart Plasma
+kquitapp6 plasmashell && kstart plasmashell
+
+```
 
 ## 🛠️ Installing KPictureFrame via the openSUSE Build Service Repository
 
