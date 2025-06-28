@@ -26,6 +26,11 @@
 
 ---
 
+## 🏠 Homepage
+
+📦 [hhttps://github.com/Agundur-KDE/KPictureFrame](https://github.com/Agundur-KDE/KPictureFrame)
+
+
 ## Features
 
 - 🖼️ Display any local image (PNG, JPG, SVG)
@@ -89,3 +94,30 @@ sudo zypper ref
 # Install KCast
 sudo zypper in kpictureframe
 ```
+
+
+## Support
+Open an issue in git ...
+
+[EZMonitor Issues](https://github.com/Agundur-KDE/KPictureFrame/issues)
+
+
+## Roadmap
+
+
+## Contributing
+accepting contributions ...
+
+[EZMonitor](https://github.com/Agundur-KDE/KPictureFrame)
+
+
+
+## Authors and acknowledgment
+Alec
+
+## License
+GPL
+
+
+## Project status
+active
