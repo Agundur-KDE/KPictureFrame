@@ -48,20 +48,15 @@ DropArea {
         asynchronous: true
         visible: status === Image.Ready
         onStatusChanged: {
-            // root.width = picture.paintedWidth;
-            // root.height = picture.paintedHeight;
-            // root.implicitWidth = picture.paintedWidth;
-            // root.implicitHeight = picture.paintedHeight;
-
             if (status === Image.Error)
                 console.warn("❌ Fehler beim Laden des Bildes:", imagePath);
 
             if (status === Image.Ready)
                 Qt.callLater(() => {
-                    // wird abgewartet bis das Bild wirklich gerendert ist
-                    full.contentWidth = picture.paintedWidth;
-                    full.contentHeight = picture.paintedHeight;
-                });
+                // wird abgewartet bis das Bild wirklich gerendert ist
+                full.contentWidth = picture.paintedWidth;
+                full.contentHeight = picture.paintedHeight;
+            });
 
         }
     }
