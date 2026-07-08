@@ -1,0 +1,6 @@
+kpictureframe (2.0.0-1) unstable; urgency=medium
+
+  * First automated .deb/.plasmoid release via GitHub Actions.
+  * CMakeLists.txt no longer requires a C++ toolchain (pure QML plasmoid).
+
+ -- Agundur <info@agundur.de>  Wed, 08 Jul 2026 12:00:00 +0200

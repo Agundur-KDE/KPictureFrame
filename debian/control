@@ -1,0 +1,19 @@
+Source: kpictureframe
+Section: kde
+Priority: optional
+Maintainer: Agundur <info@agundur.de>
+Build-Depends: debhelper-compat (= 13),
+ cmake, extra-cmake-modules, pkg-kde-tools, pkg-config,
+ qt6-base-dev, qt6-declarative-dev, qt6-declarative-dev-tools, qt6-base-dev-tools,
+ appstream
+Standards-Version: 4.7.0
+Rules-Requires-Root: no
+Homepage: https://github.com/Agundur-KDE/KPictureFrame
+
+Package: kpictureframe
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: KDE Plasma 6 picture frame for your desktop
+ KPictureFrame displays a user-defined image (PNG, JPG, SVG) on the
+ desktop — for personal photos, logos, or QR codes, with drag & drop
+ support and live reload when the configuration changes.
