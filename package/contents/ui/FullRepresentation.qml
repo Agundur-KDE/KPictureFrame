@@ -40,7 +40,7 @@ DropArea {
         id: picture
 
         anchors.fill: parent
-        fillMode: Image.Image.PreserveAspectFit
+        fillMode: Image.PreserveAspectFit
         smooth: true
         mipmap: true
         source: imagePath
