@@ -27,7 +27,7 @@ DropArea {
     property int contentHeight: 0
     readonly property bool ambientGlow: plasmoid.configuration.ambientGlow
     readonly property int glowMargin: ambientGlow ? Kirigami.Units.gridUnit * 2 : 0
-    readonly property url currentSource: full.slideshowMode ? (folderModel.count > 0 ? folderModel.get(full.currentIndex, "fileURL") : "") : full.imagePath
+    readonly property url currentSource: full.slideshowMode ? (folderModel.count > 0 ? folderModel.get(full.currentIndex, "fileUrl") : "") : full.imagePath
     // ponytail: Ordner vs. Bild wird nur an der Datei-Endung erkannt (kein KIO StatJob).
     // Reicht für Drag&Drop aus dem Dateimanager; bei falscher Erkennung bleibt die Slideshow leer.
     readonly property var imageExtensions: /\.(png|jpe?g|webp|svg)$/i
