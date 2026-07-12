@@ -1,3 +1,12 @@
+kpictureframe (2.1.0-1) unstable; urgency=medium
+
+  * Added folder slideshow mode (drag & drop a folder or pick one in settings).
+  * Added ambient glow effect (blurred halo behind the picture, toggleable).
+  * Added explicit Single picture / Slideshow mode selector in settings.
+  * Added KI18N translation pipeline with German, Spanish and French translations.
+
+ -- Agundur <info@agundur.de>  Sun, 12 Jul 2026 12:00:00 +0200
+
 kpictureframe (2.0.0-1) unstable; urgency=medium
 
   * First automated .deb/.plasmoid release via GitHub Actions.
