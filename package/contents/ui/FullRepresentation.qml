@@ -7,6 +7,7 @@
 
 import QtQuick
 import QtQuick.Controls 6.7
+import QtQuick.Effects
 import QtQuick.Layouts
 import Qt.labs.folderlistmodel
 import org.kde.draganddrop 2.0 as DragDrop
@@ -24,12 +25,15 @@ DropArea {
     property int currentIndex: 0
     property int contentWidth: 0
     property int contentHeight: 0
+    readonly property bool ambientGlow: plasmoid.configuration.ambientGlow
+    readonly property int glowMargin: ambientGlow ? Kirigami.Units.gridUnit * 2 : 0
+    readonly property url currentSource: full.slideshowMode ? (folderModel.count > 0 ? folderModel.get(full.currentIndex, "fileURL") : "") : full.imagePath
     // ponytail: Ordner vs. Bild wird nur an der Datei-Endung erkannt (kein KIO StatJob).
     // Reicht für Drag&Drop aus dem Dateimanager; bei falscher Erkennung bleibt die Slideshow leer.
     readonly property var imageExtensions: /\.(png|jpe?g|webp|svg)$/i
 
-    implicitWidth: contentWidth
-    implicitHeight: contentHeight
+    implicitWidth: contentWidth + glowMargin * 2
+    implicitHeight: contentHeight + glowMargin * 2
     anchors.fill: parent
     onFolderPathChanged: currentIndex = 0
     onDropped: (drop) => {
@@ -62,14 +66,40 @@ DropArea {
         onTriggered: full.currentIndex = (full.currentIndex + 1) % folderModel.count
     }
 
+    // Unscharfe, übersättigte Kopie hinter dem Bild — der eigentliche "Ambilight"-Effekt.
+    // opacity:0 statt visible:false: MultiEffect braucht die Quelle weiterhin gerendert,
+    // um sie als Textur zu greifen (Qt-Quirk), aber sie soll selbst unsichtbar bleiben.
+    Image {
+        id: glowSource
+
+        anchors.fill: parent
+        fillMode: Image.PreserveAspectCrop
+        source: full.currentSource
+        asynchronous: true
+        opacity: 0
+        visible: full.ambientGlow
+    }
+
+    MultiEffect {
+        anchors.fill: parent
+        source: glowSource
+        visible: full.ambientGlow
+        blurEnabled: true
+        blur: 1.0
+        blurMax: 64
+        saturation: 0.4
+        brightness: 0.05
+    }
+
     Image {
         id: picture
 
         anchors.fill: parent
+        anchors.margins: full.glowMargin
         fillMode: Image.PreserveAspectFit
         smooth: true
         mipmap: true
-        source: full.slideshowMode ? (folderModel.count > 0 ? folderModel.get(full.currentIndex, "fileURL") : "") : full.imagePath
+        source: full.currentSource
         autoTransform: true
         asynchronous: true
         visible: status === Image.Ready

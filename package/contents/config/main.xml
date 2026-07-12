@@ -12,5 +12,8 @@
       <default>10</default>
       <min>1</min>
     </entry>
+    <entry name="ambientGlow" type="Bool">
+      <default>true</default>
+    </entry>
   </group>
 </kcfg>

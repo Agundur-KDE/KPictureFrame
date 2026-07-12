@@ -17,6 +17,7 @@ Kirigami.FormLayout {
     property alias cfg_imagePath: variableName.text
     property alias cfg_folderPath: folderField.text
     property alias cfg_slideshowInterval: intervalSpin.value
+    property alias cfg_ambientGlow: glowCheck.checked
 
     RowLayout {
         QQD.FileDialog {
@@ -77,6 +78,14 @@ Kirigami.FormLayout {
         from: 1
         to: 86400
         enabled: folderField.text !== ""
+    }
+
+    QQC2.CheckBox {
+        id: glowCheck
+
+        Kirigami.FormData.label: i18n("Ambient glow:")
+        text: i18n("Blurred halo around the picture")
+        checked: true
     }
 
 }
