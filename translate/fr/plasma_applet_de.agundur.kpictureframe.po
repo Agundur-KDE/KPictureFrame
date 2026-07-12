@@ -25,6 +25,18 @@ msgstr "Aucune image trouvée dans ce dossier"
 msgid "Drag an image or a folder here"
 msgstr "Faites glisser une image ou un dossier ici"
 
+#: package/contents/ui/configPictures.qml:25
+msgid "Source:"
+msgstr "Source :"
+
+#: package/contents/ui/configPictures.qml:26
+msgid "Single picture"
+msgstr "Image unique"
+
+#: package/contents/ui/configPictures.qml:26
+msgid "Slideshow folder"
+msgstr "Dossier de diaporama"
+
 #: package/contents/ui/configPictures.qml:37
 msgid "Picture:"
 msgstr "Image :"
@@ -43,8 +55,8 @@ msgid "Slideshow folder:"
 msgstr "Dossier du diaporama :"
 
 #: package/contents/ui/configPictures.qml:63
-msgid "No folder selected — single picture mode"
-msgstr "Aucun dossier sélectionné — mode image unique"
+msgid "No folder selected."
+msgstr "Aucun dossier sélectionné."
 
 #: package/contents/ui/configPictures.qml:77
 msgid "Change picture every (seconds):"

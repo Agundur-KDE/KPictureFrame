@@ -19,7 +19,21 @@ Kirigami.FormLayout {
     property alias cfg_slideshowInterval: intervalSpin.value
     property alias cfg_ambientGlow: glowCheck.checked
 
+    QQC2.ComboBox {
+        id: modeCombo
+
+        Kirigami.FormData.label: i18n("Source:")
+        model: [i18n("Single picture"), i18n("Slideshow folder")]
+        Component.onCompleted: currentIndex = folderField.text !== "" ? 1 : 0
+        onActivated: index => {
+            if (index === 0)
+                folderField.text = "";
+        }
+    }
+
     RowLayout {
+        visible: modeCombo.currentIndex === 0
+
         QQD.FileDialog {
             id: fileDialog
 
@@ -47,6 +61,8 @@ Kirigami.FormLayout {
     }
 
     RowLayout {
+        visible: modeCombo.currentIndex === 1
+
         QQD.FolderDialog {
             id: folderDialog
 
@@ -60,7 +76,7 @@ Kirigami.FormLayout {
             id: folderField
 
             Kirigami.FormData.label: i18n("Slideshow folder:")
-            placeholderText: i18n("No folder selected — single picture mode")
+            placeholderText: i18n("No folder selected.")
         }
 
         QQC2.Button {
@@ -77,7 +93,7 @@ Kirigami.FormLayout {
         Kirigami.FormData.label: i18n("Change picture every (seconds):")
         from: 1
         to: 86400
-        enabled: folderField.text !== ""
+        visible: modeCombo.currentIndex === 1
     }
 
     QQC2.CheckBox {

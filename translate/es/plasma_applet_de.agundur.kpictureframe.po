@@ -25,6 +25,18 @@ msgstr "No se encontraron imágenes en esta carpeta"
 msgid "Drag an image or a folder here"
 msgstr "Arrastra una imagen o una carpeta aquí"
 
+#: package/contents/ui/configPictures.qml:25
+msgid "Source:"
+msgstr "Origen:"
+
+#: package/contents/ui/configPictures.qml:26
+msgid "Single picture"
+msgstr "Imagen única"
+
+#: package/contents/ui/configPictures.qml:26
+msgid "Slideshow folder"
+msgstr "Carpeta de presentación"
+
 #: package/contents/ui/configPictures.qml:37
 msgid "Picture:"
 msgstr "Imagen:"
@@ -43,8 +55,8 @@ msgid "Slideshow folder:"
 msgstr "Carpeta de presentación:"
 
 #: package/contents/ui/configPictures.qml:63
-msgid "No folder selected — single picture mode"
-msgstr "Ninguna carpeta seleccionada: modo de imagen única"
+msgid "No folder selected."
+msgstr "Ninguna carpeta seleccionada."
 
 #: package/contents/ui/configPictures.qml:77
 msgid "Change picture every (seconds):"
