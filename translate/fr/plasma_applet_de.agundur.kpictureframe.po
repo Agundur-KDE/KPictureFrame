@@ -1,0 +1,68 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: plasma_applet_de.agundur.kpictureframe\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-07-12 14:49+0200\n"
+"PO-Revision-Date: 2026-07-12 00:00+0000\n"
+"Last-Translator: Alec S. <scholz@agundur.de>\n"
+"Language-Team: French\n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: package/contents/ui/FullRepresentation.qml:124
+msgid "No images found in this folder"
+msgstr "Aucune image trouvée dans ce dossier"
+
+#: package/contents/ui/FullRepresentation.qml:124
+msgid "Drag an image or a folder here"
+msgstr "Faites glisser une image ou un dossier ici"
+
+#: package/contents/ui/configPictures.qml:37
+msgid "Picture:"
+msgstr "Image :"
+
+#: package/contents/ui/configPictures.qml:38
+msgid "No file selected."
+msgstr "Aucun fichier sélectionné."
+
+#: package/contents/ui/configPictures.qml:42
+#: package/contents/ui/configPictures.qml:67
+msgid "Browse"
+msgstr "Parcourir"
+
+#: package/contents/ui/configPictures.qml:62
+msgid "Slideshow folder:"
+msgstr "Dossier du diaporama :"
+
+#: package/contents/ui/configPictures.qml:63
+msgid "No folder selected — single picture mode"
+msgstr "Aucun dossier sélectionné — mode image unique"
+
+#: package/contents/ui/configPictures.qml:77
+msgid "Change picture every (seconds):"
+msgstr "Changer d'image toutes les (secondes) :"
+
+#: package/contents/ui/configPictures.qml:86
+msgid "Ambient glow:"
+msgstr "Lueur ambiante :"
+
+#: package/contents/ui/configPictures.qml:87
+msgid "Blurred halo around the picture"
+msgstr "Halo flou autour de l'image"
+
+#: package/contents/ui/main.qml:26
+msgid "KPictureFrame"
+msgstr "KPictureFrame"
+
+#: package/contents/config/config.qml:13
+msgctxt "@title"
+msgid "Picture"
+msgstr "Image"

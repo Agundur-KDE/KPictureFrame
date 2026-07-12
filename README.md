@@ -36,6 +36,9 @@ QR code, whatever you drag onto it.
   no restart needed.
 - Pure QML, no compiled plugin, no external daemons.
 
+UI is translated into German, Spanish and French (falls back to English
+otherwise) — see `translate/`.
+
 ## Requirements
 
 Qt ≥ 6.7 and KDE Frameworks ≥ 6.10 (whatever your Plasma 6 install already
