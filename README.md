@@ -80,7 +80,7 @@ Fork and adapt freely.
 
 ## Credits
 
-Rooftop cat photo (`KPictureFrame3.png`) by Hadi A.
+"Simba on wall" (`KPictureFrame3.png`) by Hadi A.
 
 ## License
 
