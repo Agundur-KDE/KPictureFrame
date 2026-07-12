@@ -5,5 +5,12 @@
     <entry name="imagePath" type="String">
       <default>cat.webp</default>
     </entry>
+    <entry name="folderPath" type="String">
+      <default></default>
+    </entry>
+    <entry name="slideshowInterval" type="Int">
+      <default>10</default>
+      <min>1</min>
+    </entry>
   </group>
 </kcfg>

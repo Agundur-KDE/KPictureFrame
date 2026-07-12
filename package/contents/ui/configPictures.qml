@@ -15,6 +15,8 @@ Kirigami.FormLayout {
     id: page
 
     property alias cfg_imagePath: variableName.text
+    property alias cfg_folderPath: folderField.text
+    property alias cfg_slideshowInterval: intervalSpin.value
 
     RowLayout {
         QQD.FileDialog {
@@ -41,6 +43,40 @@ Kirigami.FormLayout {
             onClicked: fileDialog.open()
         }
 
+    }
+
+    RowLayout {
+        QQD.FolderDialog {
+            id: folderDialog
+
+            currentFolder: StandardPaths.standardLocations(StandardPaths.PicturesLocation)[0]
+            onAccepted: {
+                folderField.text = folderDialog.selectedFolder.toString().replace("file://", "");
+            }
+        }
+
+        QQC2.TextField {
+            id: folderField
+
+            Kirigami.FormData.label: i18n("Slideshow folder:")
+            placeholderText: i18n("No folder selected — single picture mode")
+        }
+
+        QQC2.Button {
+            text: i18n("Browse")
+            icon.name: "folder-symbolic"
+            onClicked: folderDialog.open()
+        }
+
+    }
+
+    QQC2.SpinBox {
+        id: intervalSpin
+
+        Kirigami.FormData.label: i18n("Change picture every (seconds):")
+        from: 1
+        to: 86400
+        enabled: folderField.text !== ""
     }
 
 }
