@@ -78,6 +78,10 @@ Open an issue: [KPictureFrame Issues](https://github.com/Agundur-KDE/KPictureFra
 
 Fork and adapt freely.
 
+## Credits
+
+Rooftop cat photo (`KPictureFrame3.png`) by Hadi A.
+
 ## License
 
 GPL-3.0-or-later
