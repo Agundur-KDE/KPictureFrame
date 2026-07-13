@@ -1,3 +1,11 @@
+kpictureframe (2.2.0-1) unstable; urgency=medium
+
+  * Added randomize order option for slideshow mode.
+  * Added pause-on-hover: slideshow pauses while the cursor is over the picture.
+  * Fixed a wrong fuzzy-merged German translation for "Slideshow order:".
+
+ -- Agundur <info@agundur.de>  Mon, 13 Jul 2026 12:00:00 +0200
+
 kpictureframe (2.1.0-1) unstable; urgency=medium
 
   * Added folder slideshow mode (drag & drop a folder or pick one in settings).
