@@ -18,6 +18,8 @@ Kirigami.FormLayout {
     property alias cfg_folderPath: folderField.text
     property alias cfg_slideshowInterval: intervalSpin.value
     property alias cfg_ambientGlow: glowCheck.checked
+    property alias cfg_randomizeOrder: randomizeCheck.checked
+    property alias cfg_pauseOnHover: pauseHoverCheck.checked
 
     QQC2.ComboBox {
         id: modeCombo
@@ -93,6 +95,21 @@ Kirigami.FormLayout {
         Kirigami.FormData.label: i18n("Change picture every (seconds):")
         from: 1
         to: 86400
+        visible: modeCombo.currentIndex === 1
+    }
+
+    QQC2.CheckBox {
+        id: randomizeCheck
+
+        Kirigami.FormData.label: i18n("Slideshow order:")
+        text: i18n("Randomize order")
+        visible: modeCombo.currentIndex === 1
+    }
+
+    QQC2.CheckBox {
+        id: pauseHoverCheck
+
+        text: i18n("Pause when cursor is over the picture")
         visible: modeCombo.currentIndex === 1
     }
 

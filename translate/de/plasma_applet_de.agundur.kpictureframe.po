@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma_applet_de.agundur.kpictureframe\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-07-12 14:49+0200\n"
+"POT-Creation-Date: 2026-07-13 16:50+0200\n"
 "PO-Revision-Date: 2026-07-12 00:00+0000\n"
 "Last-Translator: Alec S. <scholz@agundur.de>\n"
 "Language-Team: German\n"
@@ -17,56 +17,68 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: package/contents/ui/FullRepresentation.qml:124
+#: package/contents/ui/FullRepresentation.qml:140
 msgid "No images found in this folder"
 msgstr "Keine Bilder in diesem Ordner gefunden"
 
-#: package/contents/ui/FullRepresentation.qml:124
+#: package/contents/ui/FullRepresentation.qml:140
 msgid "Drag an image or a folder here"
 msgstr "Bild oder Ordner hierher ziehen"
 
-#: package/contents/ui/configPictures.qml:25
+#: package/contents/ui/configPictures.qml:27
 msgid "Source:"
 msgstr "Quelle:"
 
-#: package/contents/ui/configPictures.qml:26
+#: package/contents/ui/configPictures.qml:28
 msgid "Single picture"
 msgstr "Einzelbild"
 
-#: package/contents/ui/configPictures.qml:26
+#: package/contents/ui/configPictures.qml:28
 msgid "Slideshow folder"
 msgstr "Diashow-Ordner"
 
-#: package/contents/ui/configPictures.qml:37
+#: package/contents/ui/configPictures.qml:53
 msgid "Picture:"
 msgstr "Bild:"
 
-#: package/contents/ui/configPictures.qml:38
+#: package/contents/ui/configPictures.qml:54
 msgid "No file selected."
 msgstr "Keine Datei ausgewählt."
 
-#: package/contents/ui/configPictures.qml:42
-#: package/contents/ui/configPictures.qml:67
+#: package/contents/ui/configPictures.qml:58
+#: package/contents/ui/configPictures.qml:85
 msgid "Browse"
 msgstr "Durchsuchen"
 
-#: package/contents/ui/configPictures.qml:62
+#: package/contents/ui/configPictures.qml:80
 msgid "Slideshow folder:"
 msgstr "Diashow-Ordner:"
 
-#: package/contents/ui/configPictures.qml:63
+#: package/contents/ui/configPictures.qml:81
 msgid "No folder selected."
 msgstr "Kein Ordner ausgewählt."
 
-#: package/contents/ui/configPictures.qml:77
+#: package/contents/ui/configPictures.qml:95
 msgid "Change picture every (seconds):"
 msgstr "Bild wechseln alle (Sekunden):"
 
-#: package/contents/ui/configPictures.qml:86
+#: package/contents/ui/configPictures.qml:104
+msgid "Slideshow order:"
+msgstr "Diashow-Reihenfolge:"
+
+#: package/contents/ui/configPictures.qml:105
+msgid "Randomize order"
+msgstr "Zufällige Reihenfolge"
+
+#: package/contents/ui/configPictures.qml:112
+msgid "Pause when cursor is over the picture"
+msgstr "Pausieren, wenn sich der Mauszeiger über dem Bild befindet"
+
+#: package/contents/ui/configPictures.qml:119
 msgid "Ambient glow:"
 msgstr "Ambientes Leuchten:"
 
-#: package/contents/ui/configPictures.qml:87
+#: package/contents/ui/configPictures.qml:120
 msgid "Blurred halo around the picture"
 msgstr "Unscharfer Schein um das Bild"
 

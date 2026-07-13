@@ -26,6 +26,8 @@ DropArea {
     property int contentWidth: 0
     property int contentHeight: 0
     readonly property bool ambientGlow: plasmoid.configuration.ambientGlow
+    readonly property bool randomizeOrder: plasmoid.configuration.randomizeOrder
+    readonly property bool pauseOnHover: plasmoid.configuration.pauseOnHover
     readonly property int glowMargin: ambientGlow ? Kirigami.Units.gridUnit * 2 : 0
     readonly property url currentSource: full.slideshowMode ? (folderModel.count > 0 ? folderModel.get(full.currentIndex, "fileUrl") : "") : full.imagePath
     // ponytail: Ordner vs. Bild wird nur an der Datei-Endung erkannt (kein KIO StatJob).
@@ -59,11 +61,25 @@ DropArea {
         nameFilters: ["*.png", "*.jpg", "*.jpeg", "*.webp", "*.svg"]
     }
 
+    HoverHandler {
+        id: hoverHandler
+    }
+
     Timer {
         interval: plasmoid.configuration.slideshowInterval * 1000
-        running: full.slideshowMode && folderModel.count > 0
+        running: full.slideshowMode && folderModel.count > 0 && !(full.pauseOnHover && hoverHandler.hovered)
         repeat: true
-        onTriggered: full.currentIndex = (full.currentIndex + 1) % folderModel.count
+        onTriggered: {
+            if (full.randomizeOrder && folderModel.count > 1) {
+                // Nächsten Index zufällig wählen, aber nie denselben zweimal hintereinander.
+                let next = full.currentIndex;
+                while (next === full.currentIndex)
+                    next = Math.floor(Math.random() * folderModel.count);
+                full.currentIndex = next;
+            } else {
+                full.currentIndex = (full.currentIndex + 1) % folderModel.count;
+            }
+        }
     }
 
     // Unscharfe, übersättigte Kopie hinter dem Bild — der eigentliche "Ambilight"-Effekt.
