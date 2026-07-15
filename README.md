@@ -28,7 +28,7 @@ QR code, whatever you drag onto it.
 
 ## What it does
 
-- **Display any local image** (PNG, JPG, WebP, SVG).
+- **Display any local image** (PNG, JPG, WebP, SVG, animated GIF).
 - **Slideshow mode** — point it at a folder and it cycles through every
   image inside on a configurable interval.
 - **Drag & drop** an image or a folder straight onto the widget to set it.

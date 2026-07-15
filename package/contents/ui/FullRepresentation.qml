@@ -32,7 +32,7 @@ DropArea {
     readonly property url currentSource: full.slideshowMode ? (folderModel.count > 0 ? folderModel.get(full.currentIndex, "fileUrl") : "") : full.imagePath
     // ponytail: Ordner vs. Bild wird nur an der Datei-Endung erkannt (kein KIO StatJob).
     // Reicht für Drag&Drop aus dem Dateimanager; bei falscher Erkennung bleibt die Slideshow leer.
-    readonly property var imageExtensions: /\.(png|jpe?g|webp|svg)$/i
+    readonly property var imageExtensions: /\.(png|jpe?g|webp|svg|gif)$/i
 
     implicitWidth: contentWidth + glowMargin * 2
     implicitHeight: contentHeight + glowMargin * 2
@@ -58,7 +58,7 @@ DropArea {
 
         folder: full.slideshowMode ? "file://" + full.folderPath : ""
         showDirs: false
-        nameFilters: ["*.png", "*.jpg", "*.jpeg", "*.webp", "*.svg"]
+        nameFilters: ["*.png", "*.jpg", "*.jpeg", "*.webp", "*.svg", "*.gif"]
     }
 
     HoverHandler {
@@ -85,7 +85,7 @@ DropArea {
     // Unscharfe, übersättigte Kopie hinter dem Bild — der eigentliche "Ambilight"-Effekt.
     // opacity:0 statt visible:false: MultiEffect braucht die Quelle weiterhin gerendert,
     // um sie als Textur zu greifen (Qt-Quirk), aber sie soll selbst unsichtbar bleiben.
-    Image {
+    AnimatedImage {
         id: glowSource
 
         anchors.fill: parent
@@ -107,7 +107,7 @@ DropArea {
         brightness: 0.05
     }
 
-    Image {
+    AnimatedImage {
         id: picture
 
         anchors.fill: parent
