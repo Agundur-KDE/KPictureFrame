@@ -30,7 +30,8 @@ QR code, whatever you drag onto it.
 
 - **Display any local image** (PNG, JPG, WebP, SVG, animated GIF).
 - **Slideshow mode** — point it at a folder and it cycles through every
-  image inside on a configurable interval.
+  image inside on a configurable interval. Click the left/right half of
+  the picture to go back/forward manually.
 - **Drag & drop** an image or a folder straight onto the widget to set it.
 - **Live reload** — changing the picture in Settings updates immediately,
   no restart needed.

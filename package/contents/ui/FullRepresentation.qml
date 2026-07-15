@@ -65,7 +65,16 @@ DropArea {
         id: hoverHandler
     }
 
+    // Shared by the auto-advance timer and the manual prev/next click zones below.
+    function goTo(step) {
+        if (folderModel.count === 0)
+            return;
+        full.currentIndex = (full.currentIndex + step + folderModel.count) % folderModel.count;
+    }
+
     Timer {
+        id: slideshowTimer
+
         interval: plasmoid.configuration.slideshowInterval * 1000
         running: full.slideshowMode && folderModel.count > 0 && !(full.pauseOnHover && hoverHandler.hovered)
         repeat: true
@@ -77,7 +86,7 @@ DropArea {
                     next = Math.floor(Math.random() * folderModel.count);
                 full.currentIndex = next;
             } else {
-                full.currentIndex = (full.currentIndex + 1) % folderModel.count;
+                full.goTo(1);
             }
         }
     }
@@ -130,6 +139,38 @@ DropArea {
                 full.contentHeight = picture.paintedHeight;
             });
 
+        }
+    }
+
+    // Manuelle Weiterschaltung: linke/rechte Bildhälfte klickbar, nur im
+    // Diashow-Modus mit mehr als einem Bild sinnvoll. Setzt den Auto-Timer
+    // zurück, damit ein manueller Klick nicht sofort vom nächsten Tick
+    // überholt wird.
+    RowLayout {
+        anchors.fill: parent
+        anchors.margins: full.glowMargin
+        spacing: 0
+        visible: full.slideshowMode && folderModel.count > 1
+
+        MouseArea {
+            Layout.fillWidth: true
+            Layout.fillHeight: true
+            hoverEnabled: true
+            cursorShape: Qt.PointingHandCursor
+            onClicked: {
+                full.goTo(-1);
+                slideshowTimer.restart();
+            }
+        }
+        MouseArea {
+            Layout.fillWidth: true
+            Layout.fillHeight: true
+            hoverEnabled: true
+            cursorShape: Qt.PointingHandCursor
+            onClicked: {
+                full.goTo(1);
+                slideshowTimer.restart();
+            }
         }
     }
 

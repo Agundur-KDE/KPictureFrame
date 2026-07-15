@@ -1,3 +1,10 @@
+kpictureframe (2.4.0-1) unstable; urgency=medium
+
+  * Added manual prev/next navigation in folder slideshow mode: click the
+    left/right half of the picture, resets the auto-advance timer.
+
+ -- Agundur <info@agundur.de>  Wed, 15 Jul 2026 18:20:00 +0200
+
 kpictureframe (2.3.0-1) unstable; urgency=medium
 
   * Added animated GIF support (single pictures and folder slideshows).
