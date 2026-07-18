@@ -1,4 +1,5 @@
 <div align="center">
+  <img src="assets/logo.png" width="320" alt="KPictureFrame logo">
   <h1>KPictureFrame</h1>
   <p>KDE Plasma 6 widget that displays a picture on your desktop.</p>
   <a href="https://kde.org/de/">
