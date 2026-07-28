@@ -28,6 +28,10 @@ PlasmoidItem {
     Plasmoid.backgroundHints: plasmoid.configuration.transparentBackground ? PlasmaCore.Types.NoBackground : (PlasmaCore.Types.DefaultBackground | PlasmaCore.Types.ConfigurableBackground)
     toolTipMainText: Plasmoid.title
 
+    Component.onCompleted: {
+        root.Plasmoid.backgroundHints = plasmoid.configuration.transparentBackground ? PlasmaCore.Types.NoBackground : (PlasmaCore.Types.DefaultBackground | PlasmaCore.Types.ConfigurableBackground);
+    }
+
     // Darstellungen binden das zentrale Modell
     fullRepresentation: FullRepresentation {
         id: full
