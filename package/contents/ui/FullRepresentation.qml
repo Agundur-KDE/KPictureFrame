@@ -28,6 +28,8 @@ DropArea {
     readonly property bool ambientGlow: plasmoid.configuration.ambientGlow
     readonly property bool randomizeOrder: plasmoid.configuration.randomizeOrder
     readonly property bool pauseOnHover: plasmoid.configuration.pauseOnHover
+    readonly property bool transparentBackground: plasmoid.configuration.transparentBackground
+    readonly property bool showBorder: plasmoid.configuration.showBorder
     readonly property int glowMargin: ambientGlow ? Kirigami.Units.gridUnit * 2 : 0
     readonly property url currentSource: full.slideshowMode ? (folderModel.count > 0 ? folderModel.get(full.currentIndex, "fileUrl") : "") : full.imagePath
     // ponytail: Ordner vs. Bild wird nur an der Datei-Endung erkannt (kein KIO StatJob).
@@ -116,30 +118,37 @@ DropArea {
         brightness: 0.05
     }
 
-    AnimatedImage {
+    Image {
         id: picture
 
         anchors.fill: parent
         anchors.margins: full.glowMargin
         fillMode: Image.PreserveAspectFit
-        smooth: true
-        mipmap: true
         source: full.currentSource
         autoTransform: true
         asynchronous: true
         visible: status === Image.Ready
+        sourceSize.width: Math.ceil(width * Screen.devicePixelRatio)
+        sourceSize.height: Math.ceil(height * Screen.devicePixelRatio)
         onStatusChanged: {
             if (status === Image.Error)
                 console.warn("❌ Fehler beim Laden des Bildes:", source);
 
             if (status === Image.Ready)
                 Qt.callLater(() => {
-                // wird abgewartet bis das Bild wirklich gerendert ist
                 full.contentWidth = picture.paintedWidth;
                 full.contentHeight = picture.paintedHeight;
             });
 
         }
+    }
+
+    Rectangle {
+        anchors.fill: picture
+        color: "transparent"
+        border.color: "white"
+        border.width: 1
+        visible: full.showBorder
     }
 
     // Manuelle Weiterschaltung: linke/rechte Bildhälfte klickbar, nur im

@@ -25,7 +25,7 @@ PlasmoidItem {
     }
     Plasmoid.title: i18n("KPictureFrame")
     Plasmoid.status: PlasmaCore.Types.ActiveStatus
-    Plasmoid.backgroundHints: PlasmaCore.Types.DefaultBackground | PlasmaCore.Types.ConfigurableBackground
+    Plasmoid.backgroundHints: plasmoid.configuration.transparentBackground ? PlasmaCore.Types.NoBackground : (PlasmaCore.Types.DefaultBackground | PlasmaCore.Types.ConfigurableBackground)
     toolTipMainText: Plasmoid.title
 
     // Darstellungen binden das zentrale Modell

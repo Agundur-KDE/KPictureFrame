@@ -20,6 +20,8 @@ Kirigami.FormLayout {
     property alias cfg_ambientGlow: glowCheck.checked
     property alias cfg_randomizeOrder: randomizeCheck.checked
     property alias cfg_pauseOnHover: pauseHoverCheck.checked
+    property alias cfg_transparentBackground: transparentBgCheck.checked
+    property alias cfg_showBorder: showBorderCheck.checked
 
     QQC2.ComboBox {
         id: modeCombo
@@ -118,7 +120,21 @@ Kirigami.FormLayout {
 
         Kirigami.FormData.label: i18n("Ambient glow:")
         text: i18n("Blurred halo around the picture")
+    }
+
+    QQC2.CheckBox {
+        id: transparentBgCheck
+
+        Kirigami.FormData.label: i18n("Background:")
+        text: i18n("Transparent (for pictures with alpha)")
         checked: true
+    }
+
+    QQC2.CheckBox {
+        id: showBorderCheck
+
+        Kirigami.FormData.label: i18n("Border:")
+        text: i18n("Show border around the picture")
     }
 
 }
