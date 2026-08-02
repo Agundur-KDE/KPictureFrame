@@ -1,3 +1,10 @@
+kpictureframe (2.5.0-1) unstable; urgency=medium
+
+  * Fixed blurry/pixelated pictures on HiDPI displays: sourceSize is now
+    scaled by the screen's device pixel ratio.
+
+ -- Agundur <info@agundur.de>  Sun, 02 Aug 2026 12:00:00 +0200
+
 kpictureframe (2.4.0-1) unstable; urgency=medium
 
   * Added manual prev/next navigation in folder slideshow mode: click the
