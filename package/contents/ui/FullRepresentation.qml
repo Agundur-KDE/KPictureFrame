@@ -9,6 +9,7 @@ import QtQuick
 import QtQuick.Controls 6.7
 import QtQuick.Effects
 import QtQuick.Layouts
+import QtQuick.Window
 import Qt.labs.folderlistmodel
 import org.kde.draganddrop 2.0 as DragDrop
 import org.kde.kirigami as Kirigami
@@ -128,6 +129,8 @@ DropArea {
         autoTransform: true
         asynchronous: true
         visible: status === Image.Ready
+        sourceSize.width: Math.ceil(width * Screen.devicePixelRatio)
+        sourceSize.height: Math.ceil(height * Screen.devicePixelRatio)
         onStatusChanged: {
             if (status === Image.Error)
                 console.warn("❌ Fehler beim Laden des Bildes:", source);
