@@ -30,6 +30,9 @@ DropArea {
     readonly property bool randomizeOrder: plasmoid.configuration.randomizeOrder
     readonly property bool pauseOnHover: plasmoid.configuration.pauseOnHover
     readonly property int glowMargin: ambientGlow ? Kirigami.Units.gridUnit * 2 : 0
+    // Reihenfolge muss zu den <choice>-Einträgen von pictureFillMode in main.xml passen.
+    readonly property var fillModes: [Image.PreserveAspectCrop, Image.Stretch, Image.PreserveAspectFit, Image.Pad]
+    readonly property int pictureFillMode: fillModes[plasmoid.configuration.pictureFillMode]
     readonly property url currentSource: full.slideshowMode ? (folderModel.count > 0 ? folderModel.get(full.currentIndex, "fileUrl") : "") : full.imagePath
     // ponytail: Ordner vs. Bild wird nur an der Datei-Endung erkannt (kein KIO StatJob).
     // Reicht für Drag&Drop aus dem Dateimanager; bei falscher Erkennung bleibt die Slideshow leer.
@@ -122,15 +125,17 @@ DropArea {
 
         anchors.fill: parent
         anchors.margins: full.glowMargin
-        fillMode: Image.PreserveAspectFit
+        fillMode: full.pictureFillMode
         smooth: true
         mipmap: true
         source: full.currentSource
         autoTransform: true
         asynchronous: true
         visible: status === Image.Ready
-        sourceSize.width: Math.ceil(width * Screen.devicePixelRatio)
-        sourceSize.height: Math.ceil(height * Screen.devicePixelRatio)
+        // Bei "Zentriert" (Pad) nicht auf Widget-Größe zwingen, sonst würde vor dem
+        // Zentrieren hoch-/runterskaliert und der Modus wäre wirkungslos.
+        sourceSize.width: full.pictureFillMode === Image.Pad ? 0 : Math.ceil(width * Screen.devicePixelRatio)
+        sourceSize.height: full.pictureFillMode === Image.Pad ? 0 : Math.ceil(height * Screen.devicePixelRatio)
         onStatusChanged: {
             if (status === Image.Error)
                 console.warn("❌ Fehler beim Laden des Bildes:", source);

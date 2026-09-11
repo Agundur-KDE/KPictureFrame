@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kpictureframe\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-07-13 16:50+0200\n"
+"POT-Creation-Date: 2026-09-11 07:45+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,68 +17,88 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: package/contents/ui/FullRepresentation.qml:140
+#: package/contents/ui/FullRepresentation.qml:189
 msgid "No images found in this folder"
 msgstr ""
 
-#: package/contents/ui/FullRepresentation.qml:140
+#: package/contents/ui/FullRepresentation.qml:189
 msgid "Drag an image or a folder here"
 msgstr ""
 
-#: package/contents/ui/configPictures.qml:27
+#: package/contents/ui/configPictures.qml:28
 msgid "Source:"
 msgstr ""
 
-#: package/contents/ui/configPictures.qml:28
+#: package/contents/ui/configPictures.qml:29
 msgid "Single picture"
 msgstr ""
 
-#: package/contents/ui/configPictures.qml:28
+#: package/contents/ui/configPictures.qml:29
 msgid "Slideshow folder"
 msgstr ""
 
-#: package/contents/ui/configPictures.qml:53
+#: package/contents/ui/configPictures.qml:54
 msgid "Picture:"
 msgstr ""
 
-#: package/contents/ui/configPictures.qml:54
+#: package/contents/ui/configPictures.qml:55
 msgid "No file selected."
 msgstr ""
 
-#: package/contents/ui/configPictures.qml:58
-#: package/contents/ui/configPictures.qml:85
+#: package/contents/ui/configPictures.qml:59
+#: package/contents/ui/configPictures.qml:86
 msgid "Browse"
 msgstr ""
 
-#: package/contents/ui/configPictures.qml:80
+#: package/contents/ui/configPictures.qml:81
 msgid "Slideshow folder:"
 msgstr ""
 
-#: package/contents/ui/configPictures.qml:81
+#: package/contents/ui/configPictures.qml:82
 msgid "No folder selected."
 msgstr ""
 
-#: package/contents/ui/configPictures.qml:95
+#: package/contents/ui/configPictures.qml:96
 msgid "Change picture every (seconds):"
 msgstr ""
 
-#: package/contents/ui/configPictures.qml:104
+#: package/contents/ui/configPictures.qml:105
 msgid "Slideshow order:"
 msgstr ""
 
-#: package/contents/ui/configPictures.qml:105
+#: package/contents/ui/configPictures.qml:106
 msgid "Randomize order"
 msgstr ""
 
-#: package/contents/ui/configPictures.qml:112
+#: package/contents/ui/configPictures.qml:113
 msgid "Pause when cursor is over the picture"
 msgstr ""
 
-#: package/contents/ui/configPictures.qml:119
+#: package/contents/ui/configPictures.qml:120
+msgid "Scaling:"
+msgstr ""
+
+#: package/contents/ui/configPictures.qml:121
+msgid "Scaled and cropped"
+msgstr ""
+
+#: package/contents/ui/configPictures.qml:121
+msgid "Scaled"
+msgstr ""
+
+#: package/contents/ui/configPictures.qml:121
+msgid "Scaled, keep proportions"
+msgstr ""
+
+#: package/contents/ui/configPictures.qml:121
+msgid "Centered"
+msgstr ""
+
+#: package/contents/ui/configPictures.qml:127
 msgid "Ambient glow:"
 msgstr ""
 
-#: package/contents/ui/configPictures.qml:120
+#: package/contents/ui/configPictures.qml:128
 msgid "Blurred halo around the picture"
 msgstr ""
 

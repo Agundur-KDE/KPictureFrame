@@ -20,6 +20,7 @@ Kirigami.FormLayout {
     property alias cfg_ambientGlow: glowCheck.checked
     property alias cfg_randomizeOrder: randomizeCheck.checked
     property alias cfg_pauseOnHover: pauseHoverCheck.checked
+    property alias cfg_pictureFillMode: fillModeCombo.currentIndex
 
     QQC2.ComboBox {
         id: modeCombo
@@ -111,6 +112,13 @@ Kirigami.FormLayout {
 
         text: i18n("Pause when cursor is over the picture")
         visible: modeCombo.currentIndex === 1
+    }
+
+    QQC2.ComboBox {
+        id: fillModeCombo
+
+        Kirigami.FormData.label: i18n("Scaling:")
+        model: [i18n("Scaled and cropped"), i18n("Scaled"), i18n("Scaled, keep proportions"), i18n("Centered")]
     }
 
     QQC2.CheckBox {
