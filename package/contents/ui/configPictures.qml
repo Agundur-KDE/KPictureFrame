@@ -20,7 +20,9 @@ Kirigami.FormLayout {
     property alias cfg_ambientGlow: glowCheck.checked
     property alias cfg_randomizeOrder: randomizeCheck.checked
     property alias cfg_pauseOnHover: pauseHoverCheck.checked
-    property alias cfg_pictureFillMode: fillModeCombo.currentIndex
+    property int cfg_pictureFillMode
+
+    onCfg_pictureFillModeChanged: fillModeCombo.syncIndex()
 
     QQC2.ComboBox {
         id: modeCombo
@@ -117,8 +119,39 @@ Kirigami.FormLayout {
     QQC2.ComboBox {
         id: fillModeCombo
 
+        // Speichert direkt den rohen Image.FillMode-Enum-Wert in cfg_pictureFillMode
+        // (wie im offiziellen org.kde.image-Wallpaper) statt eines eigenen Enum-kcfg-Typs:
+        // dessen Werte kommen über die plasmoid.configuration-Bridge nicht zuverlässig durch.
         Kirigami.FormData.label: i18n("Scaling:")
-        model: [i18n("Scaled and cropped"), i18n("Scaled"), i18n("Scaled, keep proportions"), i18n("Centered")]
+        model: [
+            {
+                "label": i18n("Scaled and cropped"),
+                "fillMode": Image.PreserveAspectCrop
+            },
+            {
+                "label": i18n("Scaled"),
+                "fillMode": Image.Stretch
+            },
+            {
+                "label": i18n("Scaled, keep proportions"),
+                "fillMode": Image.PreserveAspectFit
+            },
+            {
+                "label": i18n("Centered"),
+                "fillMode": Image.Pad
+            }
+        ]
+        textRole: "label"
+        onActivated: index => cfg_pictureFillMode = model[index]["fillMode"]
+        Component.onCompleted: syncIndex()
+        function syncIndex() {
+            for (let i = 0; i < model.length; i++) {
+                if (model[i]["fillMode"] === cfg_pictureFillMode) {
+                    currentIndex = i;
+                    break;
+                }
+            }
+        }
     }
 
     QQC2.CheckBox {

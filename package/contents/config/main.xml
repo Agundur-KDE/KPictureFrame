@@ -21,14 +21,10 @@
     <entry name="pauseOnHover" type="Bool">
       <default>false</default>
     </entry>
-    <entry name="pictureFillMode" type="Enum">
-      <choices>
-        <choice name="ScaledCropped"/>
-        <choice name="Scaled"/>
-        <choice name="ScaledProportions"/>
-        <choice name="Centered"/>
-      </choices>
-      <default>ScaledProportions</default>
+    <entry name="pictureFillMode" type="int">
+      <!-- Rohwert von QtQuick Image.FillMode. Default 1 = PreserveAspectFit,
+           das bisherige feste Verhalten vor diesem Setting. -->
+      <default>1</default>
     </entry>
   </group>
 </kcfg>

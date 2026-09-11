@@ -24,22 +24,23 @@ DropArea {
     property string folderPath: plasmoid.configuration.folderPath
     property bool slideshowMode: folderPath !== ""
     property int currentIndex: 0
-    property int contentWidth: 0
-    property int contentHeight: 0
     readonly property bool ambientGlow: plasmoid.configuration.ambientGlow
     readonly property bool randomizeOrder: plasmoid.configuration.randomizeOrder
     readonly property bool pauseOnHover: plasmoid.configuration.pauseOnHover
     readonly property int glowMargin: ambientGlow ? Kirigami.Units.gridUnit * 2 : 0
-    // Reihenfolge muss zu den <choice>-Einträgen von pictureFillMode in main.xml passen.
-    readonly property var fillModes: [Image.PreserveAspectCrop, Image.Stretch, Image.PreserveAspectFit, Image.Pad]
-    readonly property int pictureFillMode: fillModes[plasmoid.configuration.pictureFillMode]
+    readonly property int pictureFillMode: plasmoid.configuration.pictureFillMode
     readonly property url currentSource: full.slideshowMode ? (folderModel.count > 0 ? folderModel.get(full.currentIndex, "fileUrl") : "") : full.imagePath
     // ponytail: Ordner vs. Bild wird nur an der Datei-Endung erkannt (kein KIO StatJob).
     // Reicht für Drag&Drop aus dem Dateimanager; bei falscher Erkennung bleibt die Slideshow leer.
     readonly property var imageExtensions: /\.(png|jpe?g|webp|svg|gif)$/i
 
-    implicitWidth: contentWidth + glowMargin * 2
-    implicitHeight: contentHeight + glowMargin * 2
+    // Feste Standardgröße, unabhängig vom Bild-Seitenverhältnis: der Nutzer zieht die Box
+    // auf die gewünschte Größe/Form, das Scaling-Setting bestimmt dann, wie das Bild
+    // hineinpasst. Früher hing die Widget-Größe selbst am Bild (paintedWidth/paintedHeight),
+    // wodurch jeder andere Scaling-Modus als "Proportionen beibehalten" wirkungslos war,
+    // weil die Box sich immer exakt aufs Bild zurückgeschnappt hat.
+    implicitWidth: Kirigami.Units.gridUnit * 20 + glowMargin * 2
+    implicitHeight: Kirigami.Units.gridUnit * 15 + glowMargin * 2
     anchors.fill: parent
     onFolderPathChanged: currentIndex = 0
     onDropped: (drop) => {
@@ -132,21 +133,16 @@ DropArea {
         autoTransform: true
         asynchronous: true
         visible: status === Image.Ready
-        // Bei "Zentriert" (Pad) nicht auf Widget-Größe zwingen, sonst würde vor dem
-        // Zentrieren hoch-/runterskaliert und der Modus wäre wirkungslos.
-        sourceSize.width: full.pictureFillMode === Image.Pad ? 0 : Math.ceil(width * Screen.devicePixelRatio)
-        sourceSize.height: full.pictureFillMode === Image.Pad ? 0 : Math.ceil(height * Screen.devicePixelRatio)
+        // Quadratisch begrenzen statt auf die (evtl. nicht-quadratische) Box-Größe: bei zwei
+        // ungleichen sourceSize-Werten dekodiert Qt exakt auf dieses Format und verzerrt das
+        // Bild dabei bereits beim Laden — bevor fillMode überhaupt greifen kann. Ein
+        // quadratisches Sourcesize-Limit lässt Qt das Seitenverhältnis beim Dekodieren erhalten.
+        readonly property real maxSourceDimension: Math.ceil(Math.max(width, height) * Screen.devicePixelRatio)
+        sourceSize.width: maxSourceDimension
+        sourceSize.height: maxSourceDimension
         onStatusChanged: {
             if (status === Image.Error)
                 console.warn("❌ Fehler beim Laden des Bildes:", source);
-
-            if (status === Image.Ready)
-                Qt.callLater(() => {
-                // wird abgewartet bis das Bild wirklich gerendert ist
-                full.contentWidth = picture.paintedWidth;
-                full.contentHeight = picture.paintedHeight;
-            });
-
         }
     }
 
