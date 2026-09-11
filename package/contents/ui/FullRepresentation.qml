@@ -33,6 +33,10 @@ DropArea {
     // ponytail: Ordner vs. Bild wird nur an der Datei-Endung erkannt (kein KIO StatJob).
     // Reicht für Drag&Drop aus dem Dateimanager; bei falscher Erkennung bleibt die Slideshow leer.
     readonly property var imageExtensions: /\.(png|jpe?g|webp|svg|gif)$/i
+    // AnimatedImage verzerrt das Bild bei nicht-quadratischer sourceSize schon beim Dekodieren
+    // (Qt-Eigenheit, im Gegensatz zu Image, das die Proportionen korrekt erhält) — deshalb nur
+    // für echte GIFs verwenden, alles andere über ein normales Image.
+    readonly property bool isAnimatedGif: /\.gif$/i.test(full.currentSource)
 
     // Feste Standardgröße, unabhängig vom Bild-Seitenverhältnis: der Nutzer zieht die Box
     // auf die gewünschte Größe/Form, das Scaling-Setting bestimmt dann, wie das Bild
@@ -121,28 +125,58 @@ DropArea {
         brightness: 0.05
     }
 
-    AnimatedImage {
-        id: picture
+    Loader {
+        id: pictureLoader
 
         anchors.fill: parent
         anchors.margins: full.glowMargin
-        fillMode: full.pictureFillMode
-        smooth: true
-        mipmap: true
-        source: full.currentSource
-        autoTransform: true
-        asynchronous: true
-        visible: status === Image.Ready
-        // Quadratisch begrenzen statt auf die (evtl. nicht-quadratische) Box-Größe: bei zwei
-        // ungleichen sourceSize-Werten dekodiert Qt exakt auf dieses Format und verzerrt das
-        // Bild dabei bereits beim Laden — bevor fillMode überhaupt greifen kann. Ein
-        // quadratisches Sourcesize-Limit lässt Qt das Seitenverhältnis beim Dekodieren erhalten.
-        readonly property real maxSourceDimension: Math.ceil(Math.max(width, height) * Screen.devicePixelRatio)
-        sourceSize.width: maxSourceDimension
-        sourceSize.height: maxSourceDimension
-        onStatusChanged: {
-            if (status === Image.Error)
-                console.warn("❌ Fehler beim Laden des Bildes:", source);
+        sourceComponent: full.isAnimatedGif ? animatedPictureComponent : staticPictureComponent
+    }
+
+    // Normales Image: sourceSize erhält bei nicht-quadratischer Größe korrekt das
+    // Bild-Seitenverhältnis (siehe isAnimatedGif-Kommentar oben).
+    Component {
+        id: staticPictureComponent
+
+        Image {
+            anchors.fill: parent
+            fillMode: full.pictureFillMode
+            smooth: true
+            mipmap: true
+            source: full.currentSource
+            autoTransform: true
+            asynchronous: true
+            visible: status === Image.Ready
+            sourceSize.width: Math.ceil(width * Screen.devicePixelRatio)
+            sourceSize.height: Math.ceil(height * Screen.devicePixelRatio)
+            onStatusChanged: {
+                if (status === Image.Error)
+                    console.warn("❌ Fehler beim Laden des Bildes:", source);
+            }
+        }
+    }
+
+    // AnimatedImage nur für echte GIFs: sourceSize deshalb quadratisch begrenzt (siehe
+    // isAnimatedGif-Kommentar oben), sonst würde das Bild schon beim Dekodieren verzerrt.
+    Component {
+        id: animatedPictureComponent
+
+        AnimatedImage {
+            anchors.fill: parent
+            fillMode: full.pictureFillMode
+            smooth: true
+            mipmap: true
+            source: full.currentSource
+            autoTransform: true
+            asynchronous: true
+            visible: status === Image.Ready
+            readonly property real maxSourceDimension: Math.ceil(Math.max(width, height) * Screen.devicePixelRatio)
+            sourceSize.width: maxSourceDimension
+            sourceSize.height: maxSourceDimension
+            onStatusChanged: {
+                if (status === Image.Error)
+                    console.warn("❌ Fehler beim Laden des Bildes:", source);
+            }
         }
     }
 
