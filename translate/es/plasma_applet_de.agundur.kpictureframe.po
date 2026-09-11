@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma_applet_de.agundur.kpictureframe\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-07-13 16:50+0200\n"
+"POT-Creation-Date: 2026-09-11 09:04+0200\n"
 "PO-Revision-Date: 2026-07-12 00:00+0000\n"
 "Last-Translator: Alec S. <scholz@agundur.de>\n"
 "Language-Team: Spanish\n"
@@ -17,68 +17,88 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: package/contents/ui/FullRepresentation.qml:140
+#: package/contents/ui/FullRepresentation.qml:185
 msgid "No images found in this folder"
 msgstr "No se encontraron imágenes en esta carpeta"
 
-#: package/contents/ui/FullRepresentation.qml:140
+#: package/contents/ui/FullRepresentation.qml:185
 msgid "Drag an image or a folder here"
 msgstr "Arrastra una imagen o una carpeta aquí"
 
-#: package/contents/ui/configPictures.qml:27
+#: package/contents/ui/configPictures.qml:30
 msgid "Source:"
 msgstr "Origen:"
 
-#: package/contents/ui/configPictures.qml:28
+#: package/contents/ui/configPictures.qml:31
 msgid "Single picture"
 msgstr "Imagen única"
 
-#: package/contents/ui/configPictures.qml:28
+#: package/contents/ui/configPictures.qml:31
 msgid "Slideshow folder"
 msgstr "Carpeta de presentación"
 
-#: package/contents/ui/configPictures.qml:53
+#: package/contents/ui/configPictures.qml:56
 msgid "Picture:"
 msgstr "Imagen:"
 
-#: package/contents/ui/configPictures.qml:54
+#: package/contents/ui/configPictures.qml:57
 msgid "No file selected."
 msgstr "No se ha seleccionado ningún archivo."
 
-#: package/contents/ui/configPictures.qml:58
-#: package/contents/ui/configPictures.qml:85
+#: package/contents/ui/configPictures.qml:61
+#: package/contents/ui/configPictures.qml:88
 msgid "Browse"
 msgstr "Examinar"
 
-#: package/contents/ui/configPictures.qml:80
+#: package/contents/ui/configPictures.qml:83
 msgid "Slideshow folder:"
 msgstr "Carpeta de presentación:"
 
-#: package/contents/ui/configPictures.qml:81
+#: package/contents/ui/configPictures.qml:84
 msgid "No folder selected."
 msgstr "Ninguna carpeta seleccionada."
 
-#: package/contents/ui/configPictures.qml:95
+#: package/contents/ui/configPictures.qml:98
 msgid "Change picture every (seconds):"
 msgstr "Cambiar imagen cada (segundos):"
 
-#: package/contents/ui/configPictures.qml:104
+#: package/contents/ui/configPictures.qml:107
 msgid "Slideshow order:"
 msgstr "Orden de la presentación:"
 
-#: package/contents/ui/configPictures.qml:105
+#: package/contents/ui/configPictures.qml:108
 msgid "Randomize order"
 msgstr "Orden aleatorio"
 
-#: package/contents/ui/configPictures.qml:112
+#: package/contents/ui/configPictures.qml:115
 msgid "Pause when cursor is over the picture"
 msgstr "Pausar cuando el cursor esté sobre la imagen"
 
-#: package/contents/ui/configPictures.qml:119
+#: package/contents/ui/configPictures.qml:125
+msgid "Scaling:"
+msgstr "Escalado:"
+
+#: package/contents/ui/configPictures.qml:128
+msgid "Scaled and cropped"
+msgstr "Escalado y recortado"
+
+#: package/contents/ui/configPictures.qml:132
+msgid "Scaled"
+msgstr "Escalado"
+
+#: package/contents/ui/configPictures.qml:136
+msgid "Scaled, keep proportions"
+msgstr "Escalado, mantener proporciones"
+
+#: package/contents/ui/configPictures.qml:140
+msgid "Centered"
+msgstr "Centrado"
+
+#: package/contents/ui/configPictures.qml:160
 msgid "Ambient glow:"
 msgstr "Resplandor ambiental:"
 
-#: package/contents/ui/configPictures.qml:120
+#: package/contents/ui/configPictures.qml:161
 msgid "Blurred halo around the picture"
 msgstr "Halo difuso alrededor de la imagen"
 
