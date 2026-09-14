@@ -23,6 +23,8 @@
 user-defined image directly on your desktop or panel — a photo, a logo, a
 QR code, whatever you drag onto it.
 
+If KPictureFrame is useful to you, [support continued KDE/Linux development through GitHub Sponsors](https://github.com/sponsors/Agundur-KDE).
+
 ![KPictureFrame Plasmoid](KPictureFrame.png)
 ![KPictureFrame Plasmoid](KPictureFrame2.png)
 ![KPictureFrame Plasmoid](KPictureFrame3.png)
