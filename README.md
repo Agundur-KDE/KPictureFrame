@@ -59,14 +59,26 @@ kpackagetool6 --type Plasma/Applet --install kpictureframe-*.plasmoid
 
 Also available as a proper package, if you'd rather have `zypper`/`apt`
 manage updates:
+
+Choose the repository for your installed distribution. Add it only once; the same repository provides the other Agundur packages too.
+
+**openSUSE Tumbleweed:**
+
 ```bash
-# openSUSE Tumbleweed
 sudo zypper ar -f https://download.opensuse.org/repositories/home:/Agundur/openSUSE_Tumbleweed/home:Agundur.repo
 sudo zypper --gpg-auto-import-keys ref
 sudo zypper in kpictureframe
-
-# Debian/Ubuntu — grab the .deb from the latest release above
 ```
+
+**openSUSE Leap 16.0:**
+
+```bash
+sudo zypper ar -f https://download.opensuse.org/repositories/home:/Agundur/16.0/home:Agundur.repo
+sudo zypper --gpg-auto-import-keys ref
+sudo zypper in kpictureframe
+```
+
+For Debian/Ubuntu, download the `.deb` from the latest release above.
 
 Or straight from source, no build step needed:
 ```bash
